@@ -1,0 +1,1 @@
+mvn archetype:generate -DgroupId=com.Kushagra.app -DartifactId=user-service-app -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
