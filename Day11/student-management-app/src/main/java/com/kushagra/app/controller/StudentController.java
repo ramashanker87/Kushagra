@@ -1,29 +1,33 @@
 package com.kushagra.app.controller;
 
 import com.kushagra.app.model.Student;
-import com.kushagra.app.repository.StudentRepository;
-import org.springframework.web.bind.annotation.*;
+import com.kushagra.app.repository.StudentRepo;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/student")
+@RequestMapping("/user")
 public class StudentController {
-    private final StudentRepository studentRepository;
 
-    public StudentController(StudentRepository studentRepository) {
-        this.studentRepository = studentRepository;
-    }
+    private final StudentRepo studentRepo;
 
-    @PostMapping("/save")
-    public String save(@RequestBody final Student student){
-        System.out.println("Saving Student Data: " + student);
-        studentRepository.save(student);
-        return "Student Data Saved";
+    public StudentController(StudentRepo studentRepo) {
+        this.studentRepo = studentRepo;
     }
 
     @GetMapping("/read")
     public Iterable<Student> read() {
-        return studentRepository.findAll();
+        return studentRepo.findAll();
     }
 
-
+    @PostMapping("/save")
+    public String save(@RequestBody final Student student) {
+        System.out.println("Saving student: " + student);
+        studentRepo.save(student);
+        return "save";
+    }
 }
