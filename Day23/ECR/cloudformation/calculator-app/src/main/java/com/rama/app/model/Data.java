@@ -1,4 +1,4 @@
-package com.kushagra.app.model;
+package com.rama.app.model;
 
 public class Data {
     Integer a;

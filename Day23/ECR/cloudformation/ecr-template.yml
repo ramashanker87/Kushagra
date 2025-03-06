@@ -3,4 +3,4 @@ Resources:
   RamaECRRepository:
     Type: AWS::ECR::Repository
     Properties:
-      RepositoryName: Kushagra-microservice-repo
+      RepositoryName: sharad-microservice-repo
